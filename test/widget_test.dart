@@ -11,20 +11,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:palindrome_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('App starts with FirstScreen', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that we have Name and Palindrome text fields
+    expect(find.text('Name'), findsOneWidget);
+    expect(find.text('Palindrome'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that we have CHECK and NEXT buttons
+    expect(find.text('CHECK'), findsOneWidget);
+    expect(find.text('NEXT'), findsOneWidget);
   });
 }

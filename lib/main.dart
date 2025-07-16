@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/user_provider.dart';
-import 'screens/first_screen.dart'; // Ganti dengan path yang sesuai
+import 'screens/first_screen.dart';
 import 'screens/second_screen.dart';
 import 'screens/third_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -19,14 +21,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: FirstScreen(), // Ganti dengan screen pertama Anda
+        home: FirstScreen(),
         debugShowCheckedModeBanner: false,
-        // Tambahkan routes configuration
+        //
         routes: {
           '/second': (context) => const SecondScreen(),
           '/third': (context) => ThirdScreen(),
         },
-        // Atau gunakan onGenerateRoute untuk handling route dengan arguments
+        //
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/second':

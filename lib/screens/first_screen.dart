@@ -9,13 +9,9 @@ class FirstScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF4DD0E1), // Light cyan
-              Color(0xFF1976D2), // Blue
-            ],
+          image: DecorationImage(
+            image: AssetImage('assets/images/background.png'),
+            fit: BoxFit.cover,
           ),
         ),
         child: SafeArea(
@@ -24,7 +20,7 @@ class FirstScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Avatar Circle
+                // Avatar Circle with Image
                 Container(
                   width: 120,
                   height: 120,
@@ -32,10 +28,13 @@ class FirstScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: Colors.white.withOpacity(0.3),
                   ),
-                  child: Icon(
-                    Icons.person_add,
-                    size: 40,
-                    color: Colors.white,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/ic_photo.png',
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
 

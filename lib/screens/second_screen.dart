@@ -32,7 +32,6 @@ class _SecondScreenState extends State<SecondScreen> {
           children: [
             const SizedBox(height: 40),
 
-
             const Text(
               'Welcome',
               style: TextStyle(
@@ -43,7 +42,6 @@ class _SecondScreenState extends State<SecondScreen> {
 
             const SizedBox(height: 8),
 
-
             Text(
               name,
               style: const TextStyle(
@@ -53,28 +51,26 @@ class _SecondScreenState extends State<SecondScreen> {
               ),
             ),
 
-            const Spacer(),
-
-            // Menampilkan nama pengguna yang dipilih
-            Consumer<UserProvider>(
-              builder: (context, userProvider, child) {
-                return Center(
-                  child: Text(
-                    userProvider.selectedUserName,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                    ),
-                  ),
-                );
-              },
+            // Expanded untuk membuat area tengah yang fleksibel
+            Expanded(
+              child: Center(
+                child: Consumer<UserProvider>(
+                  builder: (context, userProvider, child) {
+                    return Text(
+                      userProvider.selectedUserName,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    );
+                  },
+                ),
+              ),
             ),
 
-            const SizedBox(height: 40),
-
-
+            // Button di bagian bawah
             SizedBox(
               width: double.infinity,
               height: 50,
@@ -87,7 +83,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2B6CB0),
+                  backgroundColor: const Color(0xFF2B637B),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
