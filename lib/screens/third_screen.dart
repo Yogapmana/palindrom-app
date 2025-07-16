@@ -16,7 +16,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
 
-    // Fetch users jika belum ada data
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       if (userProvider.users.isEmpty) {
@@ -126,7 +126,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                         color: Colors.grey,
                       ),
                       onTap: () {
-                        // Set selected user menggunakan provider
+                        //
                         userProvider.setSelectedUser(user.fullName);
                         Navigator.pop(context);
                       },
